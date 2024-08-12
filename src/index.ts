@@ -4,7 +4,7 @@ import { generateScriptFileContent } from './content';
 import { Options } from './options';
 import { outputLiquidFile } from './output';
 
-export default (options: Options = {}): Plugin => {
+export const shopifyLiquidScript = (options: Options = {}): Plugin => {
   return {
     name: 'shopify-liquid-script',
     async generateBundle(rollupOptions, bundle) {

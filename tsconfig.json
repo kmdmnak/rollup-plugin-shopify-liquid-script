@@ -1,11 +1,15 @@
 {
   "compilerOptions": {
+    "target": "ESNext",
+    "module": "commonjs",
     "declaration": true,
+    "declarationDir": "./dist",
     "outDir": "./dist",
-    "moduleResolution": "NodeNext",
-    "module": "NodeNext",
     "esModuleInterop": true,
-    "target": "ESNext"
+    "skipLibCheck": true,
+    "strict": true,
+    "allowSyntheticDefaultImports": true
   },
-  "include": ["./src/**/*"]
+  "include": ["./src/**/*"],
+  "exclude": ["node_modules", "dist"]
 }
