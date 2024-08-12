@@ -81,8 +81,8 @@ export type Options = {
   assetsDir?: string;
 
   /**
-   * The directory path where Liquid files should be generated. Usually this should be 'sections'.
-   * @default 'sections'
+   * The directory path where Liquid files should be generated. Usually this should be 'snippets'.
+   * @default 'snippets'
    */
   liquidDir?: string;
 };
@@ -129,7 +129,7 @@ export default defineConfig({
     commonjs(),
     shopifyLiquidScript({
       assetsDir: "assets",
-      liquidDir: 'sections',
+      liquidDir: 'snippets',
     }),
   ],
 });
@@ -138,7 +138,7 @@ export default defineConfig({
 In this example:
 
 - The assets will be output to the `"assets"` directory.
-- The Liquid templates will be generated in the `"sections"` directory.
+- The Liquid templates will be generated in the `"snippets"` directory.
 - The output format is set to `'system'` to ensure compatibility with SystemJS.
 - The `manualChunks` option is used to separate `@stencil/core` into its own chunk.
 
