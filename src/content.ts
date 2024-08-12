@@ -4,12 +4,13 @@ export const generateScriptFileContent = (
 ) => {
   const fileNames = [entryFileName, ...dependencyFileNames];
   const systemJSImportMapConfig = generateSystemJSImportMapConfig(fileNames);
+  const entryScriptTag = generateEntryScriptTag(entryFileName);
 
-  return systemJSImportMapConfig;
+  return [systemJSImportMapConfig, entryScriptTag].join('\n');
 };
 
 function generateSystemJSImportMapConfig(fileNames: string[]) {
-  const map = fileNames.reduce(
+  const imports = fileNames.reduce(
     (accum, fileName) => {
       accum[`./${fileName}`] = `{{ '${fileName}' | asset_url }}`;
       return accum;
@@ -18,8 +19,12 @@ function generateSystemJSImportMapConfig(fileNames: string[]) {
   );
 
   const systemJsConfig = {
-    map,
+    imports,
   };
 
-  return `<script>SystemJS.config(${JSON.stringify(systemJsConfig)})</script>`;
+  return `<script type="systemjs-importmap">${JSON.stringify(systemJsConfig)}</script>`;
+}
+
+function generateEntryScriptTag(entryFileName: string) {
+  return `<script src='{{ '${entryFileName}' | asset_url }}}'></script>`;
 }

@@ -97,6 +97,7 @@ The generated Liquid section files will include SystemJS configuration in the fo
 
 ```liquid
 <script>SystemJS.config({"map":{"./entry-1.js":"{{ 'entry-1.js' | asset_url }}","./stencil-BcHQo1kZ.js":"{{ 'stencil-BcHQo1kZ.js' | asset_url }}","./module-1-Ctc87KA9.js":"{{ 'module-1-Ctc87KA9.js' | asset_url }}"}})</script>
+<script src='{{ 'entry-1.js' | asset_url }}}'></script>
 ```
 
 This output ensures that your JavaScript files are correctly imported and mapped using SystemJS in your Shopify store.
