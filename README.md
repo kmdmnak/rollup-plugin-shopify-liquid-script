@@ -13,19 +13,19 @@ A Rollup plugin that generates Liquid templates for importing JavaScript files, 
 To install the plugin, use npm, yarn, or pnpm:
 
 ```bash
-npm install --save-dev liquid-import-script-plugin
+npm install --save-dev rollup-plugin-shopify-liquid-script
 ```
 
 or
 
 ```bash
-yarn add --dev liquid-import-script-plugin
+yarn add --dev rollup-plugin-shopify-liquid-script
 ```
 
 or
 
 ```bash
-pnpm add --save-dev liquid-import-script-plugin
+pnpm add --save-dev rollup-plugin-shopify-liquid-script
 ```
 
 ## Usage
@@ -37,7 +37,7 @@ import { defineConfig } from 'rollup';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import { globSync } from 'glob';
-import liquidImportScriptPlugin from 'liquid-import-script-plugin';
+import shopifyLiquidScript from 'rollup-plugin-shopify-liquid-script';
 
 const entryPoints = globSync("./src/entrypoints/**/*");
 
@@ -54,7 +54,7 @@ export default defineConfig({
   plugins: [
     resolve({ extensions: [".mjs", ".js", ".json", ".node", ".tsx", ".ts"] }),
     commonjs(),
-    liquidImportScriptPlugin(),
+    shopifyLiquidScript(),
   ],
 });
 ```
@@ -110,7 +110,7 @@ import { defineConfig } from 'rollup';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import { globSync } from 'glob';
-import liquidImportScriptPlugin from 'liquid-import-script-plugin';
+import shopifyLiquidScript from 'rollup-plugin-shopify-liquid-script';
 
 const entryPoints = globSync("./src/entrypoints/**/*");
 
@@ -127,7 +127,7 @@ export default defineConfig({
   plugins: [
     resolve({ extensions: [".mjs", ".js", ".json", ".node", ".tsx", ".ts"] }),
     commonjs(),
-    liquidImportScriptPlugin({
+    shopifyLiquidScript({
       assetsDir: "assets",
       liquidDir: 'sections',
     }),
