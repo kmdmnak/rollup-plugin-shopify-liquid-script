@@ -4,7 +4,9 @@
   "description": "A Rollup plugin that generates Liquid templates for importing JavaScript files, with support for Shopify Liquid and custom SystemJS import mapping.",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "lint": "npx eslint src",
+    "lint:fix": "npx eslint --fix src"
   },
   "keywords": [
     "rollup",
@@ -15,8 +17,12 @@
   "author": "kmdmnak",
   "license": "MIT",
   "devDependencies": {
+    "@eslint/js": "^9.9.0",
     "@types/node": "*",
+    "eslint": "9.x",
+    "globals": "^15.9.0",
     "rollup": "*",
-    "typescript": "*"
+    "typescript": "*",
+    "typescript-eslint": "^8.0.1"
   }
 }

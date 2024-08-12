@@ -1,9 +1,7 @@
-import { Options } from "./options";
 
 export const generateScriptFileContent = (
   entryFileName: string,
-  dependencyFileNames: string[],
-  options: Options = {}
+  dependencyFileNames: string[]
 ) => {
   const fileNames = [entryFileName, ...dependencyFileNames];
   const systemJSImportMapConfig = generateSystemJSImportMapConfig(fileNames);

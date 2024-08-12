@@ -1,8 +1,8 @@
+import { basename } from "path";
 import type { OutputAsset, OutputBundle, OutputChunk, Plugin } from "rollup";
 import { generateScriptFileContent } from "./content";
-import { outputLiquidFile } from "./output";
 import { Options } from "./options";
-import { basename } from "path";
+import { outputLiquidFile } from "./output";
 
 export const liquidImportScriptPlugin = (options: Options = {}): Plugin => {
   return {
@@ -18,8 +18,7 @@ export const liquidImportScriptPlugin = (options: Options = {}): Plugin => {
           const dependencyFileNames = imports.map((path) => basename(path));
           const scriptContent = generateScriptFileContent(
             entryFileName,
-            dependencyFileNames,
-            options
+            dependencyFileNames
           );
 
           const entryName = entryFileName.split(".")[0];
