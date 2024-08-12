@@ -6,7 +6,7 @@ export type Options = {
 };
 
 export const getInitialOptions = (options: Options = {}): Required<Options> => {
-  const { liquidDir = "sections" } = options;
+  const { liquidDir = 'sections' } = options;
 
   return {
     liquidDir,

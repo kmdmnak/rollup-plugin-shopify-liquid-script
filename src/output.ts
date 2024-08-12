@@ -1,7 +1,7 @@
-import { existsSync, mkdirSync } from "fs";
-import { writeFile } from "fs/promises";
-import { resolve } from "path";
-import { getInitialOptions, Options } from "./options";
+import { existsSync, mkdirSync } from 'fs';
+import { writeFile } from 'fs/promises';
+import { resolve } from 'path';
+import { getInitialOptions, Options } from './options';
 
 export const outputLiquidFile = (
   entryName: string,
