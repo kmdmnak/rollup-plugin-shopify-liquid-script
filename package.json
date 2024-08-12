@@ -1,0 +1,22 @@
+{
+  "name": "rollup-plugin-shopify-liquid-script",
+  "version": "0.0.1",
+  "description": "A Rollup plugin that generates Liquid templates for importing JavaScript files, with support for Shopify Liquid and custom SystemJS import mapping.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [
+    "rollup",
+    "rollup-plugin",
+    "liquid",
+    "shopify"
+  ],
+  "author": "kmdmnak",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "*",
+    "rollup": "*",
+    "typescript": "*"
+  }
+}
