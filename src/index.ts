@@ -1,14 +1,14 @@
-import { basename } from "path";
-import type { OutputAsset, OutputBundle, OutputChunk, Plugin } from "rollup";
-import { generateScriptFileContent } from "./content";
-import { Options } from "./options";
-import { outputLiquidFile } from "./output";
+import { basename } from 'path';
+import type { OutputAsset, OutputBundle, OutputChunk, Plugin } from 'rollup';
+import { generateScriptFileContent } from './content';
+import { Options } from './options';
+import { outputLiquidFile } from './output';
 
-export const liquidImportScriptPlugin = (options: Options = {}): Plugin => {
+export default (options: Options = {}): Plugin => {
   return {
-    name: "liquid-import-script",
+    name: 'shopify-liquid-script',
     async generateBundle(rollupOptions, bundle) {
-      if (rollupOptions.format !== "system") {
+      if (rollupOptions.format !== 'system') {
         throw new Error("Available output format is only 'system'");
       }
 
@@ -21,7 +21,7 @@ export const liquidImportScriptPlugin = (options: Options = {}): Plugin => {
             dependencyFileNames
           );
 
-          const entryName = entryFileName.split(".")[0];
+          const entryName = entryFileName.split('.')[0];
           return outputLiquidFile(entryName, scriptContent, options);
         }
       );
@@ -36,10 +36,13 @@ function listImportsGroupByEntries(bundle: OutputBundle) {
     (output) => isChunkOutput(output) && output.isEntry
   ) as OutputChunk[];
 
-  const importMap = entryOutputs.reduce((importMap, entry) => {
-    importMap[entry.fileName] = entry.imports;
-    return importMap;
-  }, {} as Record<string, string[]>);
+  const importMap = entryOutputs.reduce(
+    (importMap, entry) => {
+      importMap[entry.fileName] = entry.imports;
+      return importMap;
+    },
+    {} as Record<string, string[]>
+  );
 
   return importMap;
 }
@@ -47,5 +50,5 @@ function listImportsGroupByEntries(bundle: OutputBundle) {
 function isChunkOutput(
   output: OutputAsset | OutputChunk
 ): output is OutputChunk {
-  return output.type === "chunk";
+  return output.type === 'chunk';
 }
