@@ -89,11 +89,11 @@ export type Options = {
 ```
 
 - **`assetsDir`**: Specifies the directory where the generated assets will be placed. By default, this is set to `"assets"`.
-- **`liquidDir`**: Specifies the directory where the Liquid templates will be generated. By default, this is set to `"sections"`.
+- **`liquidDir`**: Specifies the directory where the Liquid templates will be generated. By default, this is set to `"snippets"`.
 
 ### Output Example
 
-The generated Liquid section files will include SystemJS configuration in the following format:
+The generated Liquid snippet files will include SystemJS configuration in the following format:
 
 ```liquid
 <script>SystemJS.config({"map":{"./entry-1.js":"{{ 'entry-1.js' | asset_url }}","./stencil-BcHQo1kZ.js":"{{ 'stencil-BcHQo1kZ.js' | asset_url }}","./module-1-Ctc87KA9.js":"{{ 'module-1-Ctc87KA9.js' | asset_url }}"}})</script>
