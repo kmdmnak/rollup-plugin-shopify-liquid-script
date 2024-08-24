@@ -1,13 +1,14 @@
 {
   "name": "rollup-plugin-shopify-liquid-script",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A Rollup plugin that generates Liquid templates for importing JavaScript files, with support for Shopify Liquid and custom SystemJS import mapping.",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
     "lint": "npx eslint src",
     "lint:fix": "npx eslint --fix src",
-    "format": "prettier src/**/* --write"
+    "format": "prettier src/**/* --write",
+    "prepack": "pnpm run build"
   },
   "keywords": [
     "rollup",
@@ -29,5 +30,8 @@
   },
   "volta": {
     "node": "22.6.0"
-  }
+  },
+  "files": [
+    "dist"
+  ]
 }
